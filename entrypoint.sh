@@ -46,10 +46,21 @@ argo_type() {
 export_list() {
   cat > list << EOF
 *******************************************
-V2-rayN:
+List:
 ----------------------------
+SSL
 
-vless://${UUID}@icook.hk:443?encryption=none&security=tls&sni=\${ARGO_DOMAIN}&type=ws&host=\${ARGO_DOMAIN}&path=%2F${WSPATH}-vless?ed=2048#Argo-Vless
+vless://${UUID}@${ARGO_DOMAIN}:443?encryption=none&security=tls&sni=${ARGO_DOMAIN}&type=ws&host=${ARGO_DOMAIN}&path=%2F#Argo-Vless-ssl
+
+----------------------------
+No SSL
+
+vless://${UUID}@${ARGO_DOMAIN}:80?encryption=none&security=none&type=ws&host=${ARGO_DOMAIN}&path=%2F#Argo-Vless-no-ssl
+
+----------------------------
+Argo Tunnel Domain
+
+${ARGO_DOMAIN}
 
 ----------------------------
 
